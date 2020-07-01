@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-dark fixed-top bg-twheader">
-      <a class="navbar-brand" href="#">TwIAggregator</a>
+      <a class="navbar-brand" href="#">Nekotter</a>
       <div class="form-inline">
         <b-button variant="secondary" @click="$router.go(-1)"
           >前のページへ</b-button
