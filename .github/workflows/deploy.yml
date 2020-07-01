@@ -13,7 +13,7 @@ jobs:
         SSH_ADDR: ${{ secrets.SSH_ADDR }}
         SSH_PORT: ${{ secrets.SSH_PORT }}
         SSH_COMMAND: ${{ secrets.SSH_COMMAND }}
-        run: 
-          echo "$SECRET_KEY" > secret_key  
-          chmod 600 secret_key
-          ssh -oStrictHostKeyChecking=no ${SSH_USER}@${SSH_ADDR} -p $SSH_PORT -i secret_key "$SSH_COMMAND"
+      run: |
+        echo "$SECRET_KEY" > secret_key  
+        chmod 600 secret_key
+        ssh -oStrictHostKeyChecking=no ${SSH_USER}@${SSH_ADDR} -p $SSH_PORT -i secret_key "$SSH_COMMAND"
