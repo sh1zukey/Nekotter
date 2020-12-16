@@ -7,12 +7,10 @@
           ><font-awesome-icon :icon="['fas', 'random']"
         /></b-button>
         <b-button-group>
-          <b-button
-            variant="secondary"
-            :to="'date/' + subDate($route.params.id)"
+          <b-button variant="secondary" :to="subDate($route.params.id)"
             >昨日</b-button
           >
-          <b-button variant="primary" :to="'date/' + addDate($route.params.id)"
+          <b-button variant="primary" :to="addDate($route.params.id)"
             >翌日</b-button
           >
         </b-button-group>
