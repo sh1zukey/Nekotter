@@ -32,7 +32,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~plugins/infiniteloading', ssr: false }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -55,11 +55,11 @@ module.exports = {
     imports: [
       {
         set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas'],
+        icons: ['faVideo', 'faUser', 'faExpand', 'faListUl', 'faRandom'],
       },
       {
         set: '@fortawesome/free-brands-svg-icons',
-        icons: ['fab'],
+        icons: ['faTwitter'],
       },
     ],
   },
