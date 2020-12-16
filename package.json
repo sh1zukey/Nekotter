@@ -13,33 +13,34 @@
     "lint-fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.29",
-    "@fortawesome/free-brands-svg-icons": "^5.13.1",
-    "@fortawesome/free-solid-svg-icons": "^5.13.1",
-    "@fortawesome/vue-fontawesome": "^0.1.10",
-    "@nuxtjs/axios": "^5.11.0",
-    "@nuxtjs/pwa": "^3.0.0-beta.20",
-    "bootstrap": "^4.5.0",
-    "bootstrap-vue": "^2.15.0",
-    "cross-env": "^5.2.0",
-    "express": "^4.16.4",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/vue-fontawesome": "^2.0.0",
+    "@nuxtjs/axios": "^5.12.3",
+    "@nuxtjs/pwa": "3.2.0",
+    "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.20.1",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
     "jpn.css": "^1.0.1",
     "mysql": "^2.18.1",
-    "nuxt": "^2.13.1",
+    "nuxt": "^2.14.10",
     "nuxt-fontawesome": "^0.4.0",
-    "vue-cool-lightbox": "^2.4.1"
+    "vue-cool-lightbox": "^2.6.9",
+    "vue-infinite-loading": "^2.4.5"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^2.0.0",
-    "@nuxtjs/eslint-module": "^1.2.0",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "node-sass": "^4.14.1",
-    "nodemon": "^1.18.9",
-    "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2"
+    "nodemon": "^2.0.5",
+    "prettier": "^2.1.2",
+    "sass-loader": "^10.0.5"
   }
 }
