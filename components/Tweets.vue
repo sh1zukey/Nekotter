@@ -17,18 +17,18 @@ import ImageCard from '~/components/ImageCard.vue'
 
 export default {
   components: {
-    ImageCard
+    ImageCard,
   },
   props: {
     params: {
       type: Object,
-      default: null
+      default: null,
     },
     results: {
       type: Array,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>
 

@@ -7,18 +7,18 @@ const connection = mysql.createConnection({
   user: 'tweet-collector',
   password: 'kFJ9EJmNiSc4tUkc',
   database: 'tweet-collector',
-  charset: 'utf8mb4'
+  charset: 'utf8mb4',
 })
 
 // GET  http://localhost:3000/api/v1/date/latestdate
-router.get('/date/latestdate', function(req, res) {
+router.get('/date/latestdate', function (req, res) {
   res.header('Content-Type', 'application/json; charset=utf-8')
 
   let sql = 'SELECT date FROM `tweets` ORDER BY `id` DESC LIMIT 1'
 
   sql = mysql.format(sql, req.params.date)
 
-  connection.query(sql, function(error, results, fields) {
+  connection.query(sql, function (error, results, fields) {
     if (error) return res.status(500).send('sql error!')
 
     res.send({ results: results[0] })
@@ -26,7 +26,7 @@ router.get('/date/latestdate', function(req, res) {
 })
 
 // GET  http://localhost:3000/api/v1/date/:date
-router.get('/date/:date', function(req, res) {
+router.get('/date/:date', function (req, res) {
   res.header('Content-Type', 'application/json; charset=utf-8')
 
   const regex = /^([1-9][0-9]{3})-(0[1-9]{1}|1[0-2]{1})-(0[1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})$/
@@ -38,22 +38,22 @@ router.get('/date/:date', function(req, res) {
 
   sql = mysql.format(sql, req.params.date)
 
-  connection.query(sql, function(error, results, fields) {
+  connection.query(sql, function (error, results, fields) {
     if (error) return res.status(500).send('sql error!')
 
     let temp = []
-    results.forEach(function(result, index, array) {
+    results.forEach(function (result, index, array) {
       const objMediaUrls = JSON.parse(result.media_urls)
-      objMediaUrls.forEach(function(mediaUrl) {
+      objMediaUrls.forEach(function (mediaUrl) {
         if ('image' in mediaUrl) {
           temp.push({
             src: mediaUrl.image.url + '&name=orig',
-            thumb: mediaUrl.image.url
+            thumb: mediaUrl.image.url,
           })
         } else if ('video' in mediaUrl) {
           temp.push({
             src: mediaUrl.video.url.replace(/\?.*$/, ''),
-            thumb: mediaUrl.video.thumb
+            thumb: mediaUrl.video.thumb,
           })
         }
       })
@@ -66,7 +66,7 @@ router.get('/date/:date', function(req, res) {
 })
 
 // GET  http://localhost:3000/api/v1/userid/:id
-router.get('/userid/:id', function(req, res) {
+router.get('/userid/:id', function (req, res) {
   res.header('Content-Type', 'application/json; charset=utf-8')
 
   const regex = /^[1-9]\d*$/
@@ -78,22 +78,22 @@ router.get('/userid/:id', function(req, res) {
 
   sql = mysql.format(sql, req.params.id)
 
-  connection.query(sql, function(error, results, fields) {
+  connection.query(sql, function (error, results, fields) {
     if (error) return res.status(500).send('sql error!')
 
     let temp = []
-    results.forEach(function(result, index, array) {
+    results.forEach(function (result, index, array) {
       const objMediaUrls = JSON.parse(result.media_urls)
-      objMediaUrls.forEach(function(mediaUrl) {
+      objMediaUrls.forEach(function (mediaUrl) {
         if ('image' in mediaUrl) {
           temp.push({
             src: mediaUrl.image.url + '&name=orig',
-            thumb: mediaUrl.image.url
+            thumb: mediaUrl.image.url,
           })
         } else if ('video' in mediaUrl) {
           temp.push({
             src: mediaUrl.video.url.replace(/\?.*$/, ''),
-            thumb: mediaUrl.video.thumb
+            thumb: mediaUrl.video.thumb,
           })
         }
       })

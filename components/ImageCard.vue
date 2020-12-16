@@ -4,7 +4,7 @@
       :items="tweet.for_lbox_media_urls"
       :index="index"
       :loop="false"
-      :closeOnClickOutsideMobile="true"
+      :close-on-click-outside-mobile="true"
       @close="index = null"
     >
     </CoolLightBox>
@@ -152,17 +152,17 @@ import ImgTag from '~/components/ImgTag.vue'
 export default {
   components: {
     CoolLightBox,
-    ImgTag
+    ImgTag,
   },
   props: {
     tweet: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      index: null
+      index: null,
     }
   },
   methods: {
@@ -177,13 +177,13 @@ export default {
     },
     toLink(str) {
       const regexpUrl = /((h?)(ttps?:\/\/[a-zA-Z0-9.\-_@:/~?%&;=+#',()*!]+))/g
-      const regexpMakeLink = function(all, url, h, href) {
+      const regexpMakeLink = function (all, url, h, href) {
         return '<a href="h' + href + '" target="_blank">' + url + '</a>'
       }
 
       return str.replace(regexpUrl, regexpMakeLink)
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>

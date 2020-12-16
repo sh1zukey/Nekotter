@@ -12,24 +12,24 @@ export default {
   props: {
     id: {
       type: Number,
-      default: null
+      default: null,
     },
     imageUrl: {
       type: String,
-      default: null
+      default: null,
     },
     tweetText: {
       type: String,
-      default: null
+      default: null,
     },
     date: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      dataImageUrl: this.imageUrl
+      dataImageUrl: this.imageUrl,
     }
   },
   methods: {
@@ -39,7 +39,7 @@ export default {
       this.dataImageUrl = this.imageUrl
       this.$parent.tweet.for_lbox_media_urls[this.id].thumb = this.imageUrl
       this.$parent.tweet.for_lbox_media_urls[this.id].src = this.imageUrl
-    }
-  }
+    },
+  },
 }
 </script>

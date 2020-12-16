@@ -27,7 +27,7 @@ export default {
     return /^[1-9]\d*$/.test(params.id)
   },
   components: {
-    Tweets
+    Tweets,
   },
   async asyncData({ app }) {
     const baseUrl = '/api/v1/userid/'
@@ -41,20 +41,20 @@ export default {
         app.context.params.id +
         'の検索結果 -' +
         response.results.length +
-        '件-'
+        '件-',
     }
   },
   data() {
     return {
       results: [],
-      title: 'ユーザー検索'
+      title: 'ユーザー検索',
     }
   },
   head() {
     return {
-      title: this.title
+      title: this.title,
     }
-  }
+  },
 }
 </script>
 

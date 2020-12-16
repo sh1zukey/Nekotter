@@ -34,7 +34,7 @@ export default {
     )
   },
   components: {
-    Tweets
+    Tweets,
   },
   async asyncData({ app }) {
     const baseUrl = '/api/v1/date/'
@@ -44,13 +44,16 @@ export default {
     return {
       results: response.results,
       title:
-        app.context.params.id + 'の検索結果 -' + response.results.length + '件-'
+        app.context.params.id +
+        'の検索結果 -' +
+        response.results.length +
+        '件-',
     }
   },
   data() {
     return {
       results: [],
-      title: '日付検索'
+      title: '日付検索',
     }
   },
   methods: {
@@ -71,13 +74,13 @@ export default {
       const m = ('00' + (date.getMonth() + 1)).slice(-2)
       const d = ('00' + date.getDate()).slice(-2)
       return y + '-' + m + '-' + d
-    }
+    },
   },
   head() {
     return {
-      title: this.title
+      title: this.title,
     }
-  }
+  },
 }
 </script>
 

@@ -8,7 +8,7 @@ module.exports = {
     title: '',
     titleTemplate: '%s | Nekotter',
     htmlAttrs: {
-      lang: 'ja'
+      lang: 'ja',
     },
     meta: [
       { charset: 'utf-8' },
@@ -16,10 +16,10 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -38,7 +38,7 @@ module.exports = {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
   ],
   /*
    ** Nuxt.js modules
@@ -49,19 +49,19 @@ module.exports = {
     'nuxt-fontawesome',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
   ],
   fontawesome: {
     imports: [
       {
         set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas']
+        icons: ['fas'],
       },
       {
         set: '@fortawesome/free-brands-svg-icons',
-        icons: ['fab']
-      }
-    ]
+        icons: ['fab'],
+      },
+    ],
   },
   /*
    ** Axios module configuration
@@ -71,7 +71,7 @@ module.exports = {
     baseURL:
       process.env.NODE_ENV === 'production'
         ? 'https://app.takashun.dev/'
-        : 'http://localhost:3000/'
+        : 'http://localhost:3000/',
   },
   pwa: {
     manifest: {
@@ -83,8 +83,8 @@ module.exports = {
       background_color: '#10171e',
       display: 'fullscreen',
       scope: '/',
-      start_url: '/date/latest'
-    }
+      start_url: '/date/latest',
+    },
   },
   /*
    ** Build configuration
@@ -98,6 +98,6 @@ module.exports = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
+    extend(config, ctx) {},
+  },
 }

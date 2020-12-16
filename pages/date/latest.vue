@@ -22,13 +22,13 @@ export default {
   data() {
     return {
       latestDate: '',
-      title: '日付検索 最新の日付'
+      title: '日付検索 最新の日付',
     }
   },
   head() {
     return {
-      title: this.title
+      title: this.title,
     }
-  }
+  },
 }
 </script>
