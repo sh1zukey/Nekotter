@@ -1,5 +1,5 @@
 module.exports = {
-  mode: 'universal',
+  ssr: true,
   telemetry: false,
   /*
    ** Headers of the page
