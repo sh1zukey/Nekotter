@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-dark fixed-top bg-twheader">
-      <a class="navbar-brand" href="#">Nekotter</a>
+      <a class="navbar-brand">Nekotter</a>
       <div class="form-inline">
         <b-button variant="secondary" @click="$router.go(-1)"
           >前のページへ</b-button
@@ -9,11 +9,19 @@
       </div>
     </nav>
     <transition name="page">
-      <div class="container">
-        <h1 class="text-light">
+      <div class="container-fluid">
+        <h1 class="text-light text-break">
           {{ title }}
         </h1>
-        <Tweets :params="$route.params" :results="results"></Tweets>
+        <Tweets :params="$route.params" :results="displayResults"></Tweets>
+        <client-only>
+          <infinite-loading
+            ref="infiniteLoading"
+            spinner="waveDots"
+            @infinite="infiniteHandler"
+          >
+          </infinite-loading>
+        </client-only>
       </div>
     </transition>
   </div>
@@ -21,7 +29,6 @@
 
 <script>
 import Tweets from '~/components/Tweets.vue'
-
 export default {
   validate({ params }) {
     return /^[1-9]\d*$/.test(params.id)
@@ -36,6 +43,7 @@ export default {
     const response = await app.$axios.$get(getUrl)
     return {
       results: response.results,
+      displayResults: response.results.slice(0, 24),
       title:
         'ユーザーID：' +
         app.context.params.id +
@@ -46,13 +54,43 @@ export default {
   },
   data() {
     return {
-      results: [],
       title: 'ユーザー検索',
+      results: [],
+      displayResults: [],
+      pageIndex: 0,
+      perData: 24,
     }
+  },
+  methods: {
+    infiniteHandler($state) {
+      if (this.displayResults.length >= this.results.length) {
+        $state.complete()
+        return
+      }
+      this.pageIndex++
+      const temp = this.pageIndex * this.perData
+      this.displayResults = this.displayResults.concat(
+        this.results.slice(temp, temp + this.perData)
+      )
+      $state.loaded()
+    },
   },
   head() {
     return {
       title: this.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.title },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Nekotter - ' + this.title,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.title,
+        },
+      ],
     }
   },
 }
