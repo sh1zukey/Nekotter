@@ -85,6 +85,32 @@ module.exports = {
       scope: '/',
       start_url: '/date/latest',
     },
+    lang: 'ja',
+    theme_color: '#1c2938',
+    background_color: '#10171e',
+    display: 'fullscreen',
+    scope: '/',
+    start_url: '/date/latest',
+  },
+  workbox: {
+    skipWaiting: true,
+    clientsClaim: true,
+    runtimeCaching: [
+      {
+        urlPattern:
+          '/\\/api\\/v1\\/date\\/([1-9][0-9]{3})-(0[1-9]{1}|1[0-2]{1})-(0[1-9]{1}|[1-2]{1}[0-9]{1}|3[0-1]{1})$/',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: {
+          cacheExpiration: {
+            maxAgeSeconds: 60 * 60 * 24,
+          },
+          cacheableResponse: {
+            statuses: [200],
+          },
+        },
+      },
+    ],
   },
   /*
    ** Build configuration
