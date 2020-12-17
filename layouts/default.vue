@@ -1,8 +1,18 @@
 <template>
   <div ontouchstart="" onMouseDown="return false;" onSelectStart="return false">
+    <LightBox />
     <nuxt />
   </div>
 </template>
+
+<script>
+import LightBox from '@/components/LightBox'
+export default {
+  components: {
+    LightBox,
+  },
+}
+</script>
 
 <style>
 body {
