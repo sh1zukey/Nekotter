@@ -20,7 +20,7 @@
     "@nuxtjs/axios": "^5.12.3",
     "@nuxtjs/pwa": "3.2.0",
     "bootstrap": "^4.5.3",
-    "bootstrap-vue": "^2.20.1",
+    "bootstrap-vue": "^2.21.1",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "jpn.css": "^1.0.1",
