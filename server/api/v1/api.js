@@ -103,7 +103,7 @@ router.get('/thread/:id', function (req, res) {
       ' UNION ALL SELECT temp.id, temp.status_id, temp.user_id, temp.user_name, temp.tweet_text, temp.media_urls, temp.date, temp.parent_status_id\n' +
       ' FROM tweets temp\n' +
       ' INNER JOIN cte1 ON temp.parent_status_id = cte1.status_id )\n' +
-      'SELECT id, cast(status_id as char) as status_id, cast(user_id as char) as user_id, user_name, tweet_text, media_urls, MAX(date) AS date\n' +
+      ' SELECT id, cast(status_id as char) as status_id, cast(user_id as char) as user_id, user_name, tweet_text, media_urls, MAX(date) AS date\n' +
       ' FROM cte1\n' +
       ' GROUP BY cte1.status_id'
     sql = mysql.format(sql.replace(/\r?\n/g, ' '), [req.params.id])
@@ -125,7 +125,7 @@ router.get('/thread/:id', function (req, res) {
       ' UNION ALL SELECT temp.id, temp.status_id, temp.user_id, temp.user_name, temp.tweet_text, temp.media_urls, temp.date, temp.parent_status_id\n' +
       ' FROM tweets temp\n' +
       ' INNER JOIN cte2 ON temp.status_id = cte2.parent_status_id )\n' +
-      'SELECT id, cast(status_id as char) as status_id, cast(user_id as char) as user_id, user_name, tweet_text, media_urls, MAX(date) AS date\n' +
+      ' SELECT id, cast(status_id as char) as status_id, cast(user_id as char) as user_id, user_name, tweet_text, media_urls, MAX(date) AS date\n' +
       ' FROM cte2\n' +
       ' GROUP BY cte2.status_id'
     sql = mysql.format(sql.replace(/\r?\n/g, ' '), [req.params.id])
